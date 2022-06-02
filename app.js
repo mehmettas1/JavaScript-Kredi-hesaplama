@@ -5,7 +5,7 @@ const vade = document.querySelector('#vade');
 const tutar = document.querySelector('#tutar');
 const hesaplaBtn = document.querySelector('.btn-dark');
 let oran =0;
-let taksit = 0
+let taksit = 0;
 
 hesaplaBtn.addEventListener("click",(e)=>{
     e.preventDefault();
@@ -20,14 +20,14 @@ hesaplaBtn.addEventListener("click",(e)=>{
         alert("Lütfen Kredi turu, Vade ve tutari giriniz");
     }
     const faiz = oran/100;
-    taksit = tutar.value *(faiz * (1+faiz)**vade.value)/((1+faiz)**vade.value - 1);
+    taksit = (tutar.value *(faiz * (1+faiz)**vade.value))/((1+faiz)**vade.value - 1);
     sonuclariGoster();
 });
 
 const sonuclariGoster = () => {
-    const sonuclariGoster = document.querySelector('.sonuclar');
+    const sonuclar = document.querySelector('.sonuclar')
 
-   sonuclar.innerHTML = `<table class="table table-bordered border-warning">
+   sonuclar.innerHTML = `<table class="table table-bordered border-warning mt-4">
      <tbody>
     <tr>
       <th>Kredi Miktarı</th>
@@ -49,5 +49,5 @@ const sonuclariGoster = () => {
     </tr>
   </tbody>
 
-</table>
+</table>`
 }
